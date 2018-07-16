@@ -47,24 +47,33 @@ In order for your project to be reviewed, the grader needs to be able to log in 
 		sudo vim /etc/sudoers.d/grader
    add text `grader ALL=(ALL) NOPASSWD:ALL`
 
-8. Create an SSH key pair for grader using the ssh-keygen tool. Prepare to deploy your project.
+8. Enable SSH for Grader User
+	- Switch to Grader's Home directory and create a new directory called .ssh
+	- Run touch .ssh/authorized_keys
+	- Open the grader_key.pub and paste them into .ssh/authorized_keys file on VM
+	- Change permissions chmod 700 .ssh , chmod 644 .ssh/authorized_keys
+	- To make sure key based authentication is forced open /etc/ssh/sshd_config file '# Change to no to disable tunnelled clear text passwords' if the next line is 'PasswordAuthentication yes', change the 'yes' to 'no', save and exit the file, run 
+	
+		sudo service ssh restart
+
+9. Create an SSH key pair for grader using the ssh-keygen tool. Prepare to deploy your project.
 		
 		ssh-keygen -t rsa
 
-9. Configure the local timezone to UTC.
+10. Configure the local timezone to UTC.
 
 		sudo dpkg-reconfigure tzdata
 		
-10. Install and configure Apache to serve a Python mod_wsgi application.
+11. Install and configure Apache to serve a Python mod_wsgi application.
 		
     If you built your project with Python 3, you will need to install the Python 3 mod_wsgi package on your server: sudo apt-get install libapache2-mod-wsgi-py3.
 
-11. Install and configure PostgreSQL:
+12. Install and configure PostgreSQL:
 
 			sudo apt-get install postgresql postgresql-contrib
     Do not allow remote connections
     Create a new database user named catalog that has limited permissions to your catalog application database.
 
-12. Install git.
+13. Install git.
 
 		sudo apt-get install git
