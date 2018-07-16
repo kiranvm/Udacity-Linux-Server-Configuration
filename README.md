@@ -66,14 +66,20 @@ In order for your project to be reviewed, the grader needs to be able to log in 
 		
 11. Install and configure Apache to serve a Python mod_wsgi application.
 		
-    If you built your project with Python 3, you will need to install the Python 3 mod_wsgi package on your server: sudo apt-get install libapache2-mod-wsgi-py3.
+    If you built your project with Python 3, you will need to install the Python 3 mod_wsgi package on your server: 
+    
+    		sudo apt-get install libapache2-mod-wsgi-py3
 
 12. Install and configure PostgreSQL:
 
-			sudo apt-get install postgresql postgresql-contrib
+		sudo apt-get install postgresql postgresql-contrib
+	
     Do not allow remote connections
     Create a new database user named catalog that has limited permissions to your catalog application database.
 
 13. Install git.
 
 		sudo apt-get install git
+
+# References
+1. https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-16-04
