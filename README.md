@@ -2,7 +2,7 @@
 This project is for set up a Linux serve and is linked to the Configuring Linux Web Servers course. 
 
 The server is created with Amazon Lightsail for this. 
-Get your server.
+# Get your server.
 
 1. Start a new Ubuntu Linux server instance on Amazon Lightsail. 
 	- https://aws.amazon.com/lightsail/
@@ -86,3 +86,5 @@ In order for your project to be reviewed, the grader needs to be able to log in 
 1. https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-16-04
 2. https://kiranvm.wordpress.com/2018/07/17/502-bad-gateway-nginxflaskgunicorn-2-no-such-file-or-directory/
 
+Deployed Application:
+http://13.127.165.65
