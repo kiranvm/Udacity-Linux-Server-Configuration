@@ -22,7 +22,7 @@ The server is created with Amazon Lightsail for this.
 		
 		nano -c /etc/ssh/sshd_config	
 
-	- Line #13 shows the current configured port number. (ie. Port 22) Meaning, SSH is currently using 22.
+	- Line #5 shows the current configured port number. (ie. Port 22) Meaning, SSH is currently using 22.
 	- Change the numerical digits from 22 to your desired port number, for this example we will be using 2200.
 
 5. Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123).
