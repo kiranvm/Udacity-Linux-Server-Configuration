@@ -70,6 +70,7 @@ In order for your project to be reviewed, the grader needs to be able to log in 
     
     		sudo apt-get install libapache2-mod-wsgi-py3
 
+    I have followed reference item 1 for setting up the application.
 12. Install and configure PostgreSQL:
 
 		sudo apt-get install postgresql postgresql-contrib
@@ -83,4 +84,5 @@ In order for your project to be reviewed, the grader needs to be able to log in 
 
 # References
 1. https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-16-04
+2. https://kiranvm.wordpress.com/2018/07/17/502-bad-gateway-nginxflaskgunicorn-2-no-such-file-or-directory/
 
