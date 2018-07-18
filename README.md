@@ -35,7 +35,7 @@ This project is for set up a Linux serve and is linked to the Configuring Linux 
 
 ## Give grader access.
 
-In order for your project to be reviewed, the grader needs to be able to log in to your server.
+In order for your project to be reviewed, the grader needs to be able to log in to your server. Run the following commands in server
 
 6. Create a new user account named grader.
 	
@@ -44,20 +44,37 @@ In order for your project to be reviewed, the grader needs to be able to log in 
 7. Give grader the permission to sudo.
 
 		sudo vim /etc/sudoers.d/grader
-   add text `grader ALL=(ALL) NOPASSWD:ALL`
+   add text `grader ALL=(ALL:ALL) ALL`
 
-8. Enable SSH for Grader User
+8. Create an SSH key pair for grader using the ssh-keygen tool in your LOCAL PC.
+		
+		ssh-keygen -t rsa
+   This will create a private file and a public file (.pub).
+   Copy the private file to ~/.ssh folder in your LOCAL PC
+   		
+		sudo cp file_name ~/.ssh
+
+9. Enable SSH for Grader User
+	- Switch as Grader user
+		
+		sudo su - grader
 	- Switch to Grader's Home directory and create a new directory called .ssh
-	- Run touch .ssh/authorized_keys
-	- Open the grader_key.pub and paste them into .ssh/authorized_keys file on VM
-	- Change permissions chmod 700 .ssh , chmod 644 .ssh/authorized_keys
+		
+		sudo touch .ssh
+	- create authorized_keys file 
+		
+		sudo touch .ssh/authorized_keys
+	- Open the grader_key.pub in your local pc and paste them into .ssh/authorized_keys file on VM
+	
+		sudo vim .ssh/authorized_keys
+	- Change permissions 
+	
+		sudo chmod 700 .ssh
+		sudo chmod 644 .ssh/authorized_keys
+		
 	- To make sure key based authentication is forced open /etc/ssh/sshd_config file '# Change to no to disable tunnelled clear text passwords' if the next line is 'PasswordAuthentication yes', change the 'yes' to 'no', save and exit the file, run 
 	
 		sudo service ssh restart
-
-9. Create an SSH key pair for grader using the ssh-keygen tool. Prepare to deploy your project.
-		
-		ssh-keygen -t rsa
 
 10. Configure the local timezone to UTC.
 
