@@ -14,7 +14,7 @@ This project is for set up a Linux serve and is linked to the Configuring Linux 
 
 	 	sudo apt-get update
 	 	sudo apt-get upgrade
-	 
+	 - Check this link for setting up automatic updates - https://help.ubuntu.com/lts/serverguide/automatic-updates.html
 4. Change the SSH port from 22 to 2200. Make sure to configure the Lightsail firewall to allow it.
 
 	- Open the configuration file with your favorite text editor.
@@ -23,6 +23,10 @@ This project is for set up a Linux serve and is linked to the Configuring Linux 
 
 	- Line #5 shows the current configured port number. (ie. Port 22) Meaning, SSH is currently using 22.
 	- Change the numerical digits from 22 to your desired port number, for this example we will be using 2200.
+	- Although another person can not log in using remote root user, it is more secure to set ProhibitRootLogin to NO because a password can be brute forced.
+	- Change line PermitRootLogin prohibit-password as given below
+		
+		PermitRootLogin NO
 
 5. Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123).
 		
@@ -76,6 +80,7 @@ In order for your project to be reviewed, the grader needs to be able to log in 
 	
 		sudo service ssh restart
 
+	- 
 10. Configure the local timezone to UTC.
 
 		sudo dpkg-reconfigure tzdata
